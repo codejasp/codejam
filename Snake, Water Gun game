@@ -1,0 +1,72 @@
+import random
+k = ["snake", "water", "gun"]
+
+chance = 10
+no_of_attempt = 0
+computer_score = 0
+player_score = 0
+
+while no_of_attempt < chance:
+    b = input("snake, water, gun: ")
+    a = random.choice(k)
+    if b == "s" and a == "snake":
+        print("It's a tie")
+    elif b == "g" and a == "gun":
+        print("It's a tie")
+    elif b == "w" and a == "water":
+        print("It's a tie")
+
+# if player enter s
+    if b == "s" and a == "water":
+        print("The snake will drink the water\n")
+        print("You win!\n")
+        player_score= player_score+1
+        print(f"Computer point is {computer_score} and your score is {player_score}")
+
+    elif b == "s" and a == "gun":
+        print("The gun will shoot the snake\n")
+        print("You loose\n")
+        computer_score= computer_score+1
+        print(f"Computer point is {computer_score} and your score is {player_score}")
+
+# if player enter w
+    if b == "w" and a == "gun":
+        print("The gun will drown in water\n")
+        print("You win!\n")
+        player_score= player_score+1
+        print(f"Computer point is {computer_score} and your score is {player_score}")
+
+    elif b == "w" and a == "snake":
+        print("The snake will drink the water\n")
+        print("You loose!\n")
+        computer_score= computer_score+1
+        print(f"Computer point is {computer_score} and your score is {player_score}")
+
+# if player enter g
+    if b == "g" and a == "snake":
+        print("The gun will shoot the snake\n")
+        print("You Win!\n")
+        player_score = player_score+1
+        print(f"Computer point is {computer_score} and your score is {player_score}")
+
+    elif b == "g" and a == "water":
+        print("The gun will drown in water\n")
+        print("You loose!\n")
+        computer_score= computer_score+1
+        print(f"Computer point is {computer_score} and your score is {player_score}")
+
+    else:
+        print("Enter the value from s, g or w")
+
+    no_of_attempt = no_of_attempt+1
+    print(f"{chance-no_of_attempt} is left out of {chance}")
+
+print("Game over")
+
+if computer_score> player_score:
+    print("Computer wins!")
+
+if player_score> computer_score:
+    print("Congrats you win!")
+
+print(f"Computer score was {computer_score} and your score was {player_score}")
